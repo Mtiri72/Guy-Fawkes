@@ -45,5 +45,34 @@ The program ensures the integrity and authenticity of heartbeat messages by leve
    ```bash
    git clone https://github.com/your-username/heartbeat-program.git
    cd heartbeat-program
+2. **Generate the Winternitz Key Chain**:  
+Run the key generation script:
 
-   
+```bash
+python winternitz_chain.py
+
+This creates three files:
+
+    private_key.bin – The private key (only used for key generation).
+    winternitz_chain.bin – The full chain of hash values.
+    public_key.bin – The last chain value, used as the public key for verification.
+
+The public key (x_N) is the last value in the Winternitz chain and is used by the receiver to verify the authenticity of the received Winternitz chain points (w_i). Since the key pair (private and public) is generated on the sender's side, the receiver must have a copy of the public key for validation.
+
+Start the Receiver
+
+On the machine that will receive heartbeat messages, run:
+
+python receiver.py
+
+Start the Sender
+
+On the machine sending heartbeats, modify the receiver's IP in sender.py:
+
+receiver_ip = "10.30.2.252"  # Update this with your receiver's IP
+
+Then, run:
+
+python sender.py
+
+The sender will send 10 authenticated heartbeat messages, one per second.
