@@ -50,7 +50,7 @@ Run the key generation script:
 
 ```bash
 python winternitz_chain.py
-
+```
 This creates three files:
 
     private_key.bin – The private key (only used for key generation).
@@ -59,20 +59,16 @@ This creates three files:
 
 The public key (x_N) is the last value in the Winternitz chain and is used by the receiver to verify the authenticity of the received Winternitz chain points (w_i). Since the key pair (private and public) is generated on the sender's side, the receiver must have a copy of the public key for validation.
 
-Start the Receiver
-
-On the machine that will receive heartbeat messages, run:
-
+Start the Receiver on the node that will receive heartbeat messages, run:
+```bash
 python receiver.py
-
-Start the Sender
-
-On the machine sending heartbeats, modify the receiver's IP in sender.py:
-
+```
+Start the Sender on the machine sending heartbeats, modify the receiver's IP in sender.py:
+```bash
 receiver_ip = "10.30.2.252"  # Update this with your receiver's IP
-
+```
 Then, run:
-
+```bash
 python sender.py
-
+```
 The sender will send 10 authenticated heartbeat messages, one per second.
