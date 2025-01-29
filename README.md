@@ -72,3 +72,14 @@ Then, run:
 python sender.py
 ```
 The sender will send 10 authenticated heartbeat messages, one per second.
+
+## Troubleshooting
+1. **Incorrectly Formatted Messages**:
+Ensure the sender and receiver scripts are using the same CHAIN_LENGTH and hash function.
+
+2. **Network Issues:**
+Verify that the receiver's IP address and port are correctly configured in the sender script.
+
+3. **File Not Found Errors:** 
+Ensure private_key.bin, winternitz_chain.bin, and public_key.bin are generated and available in the working directory.
+
