@@ -49,7 +49,7 @@ def generate_winternitz_chain(output_dir, debug=False):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Generate a Winternitz Chain")
-    parser.add_argument("--output-dir", default="/home/pi/heartbeat_keys", help="Output directory for key files")
+    parser.add_argument("--output-dir", default="/home/SN1/heartbeat_keys", help="Output directory for key files")
     parser.add_argument("--debug", action="store_true", help="Enable debug output")
     args = parser.parse_args()
 
@@ -58,5 +58,3 @@ if __name__ == "__main__":
     except Exception as e:
         print(f"An error occurred during chain generation: {e}")
         exit(1)
-
-
